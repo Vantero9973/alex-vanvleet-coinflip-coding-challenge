@@ -7,6 +7,7 @@ A take-home coding challenge to build a cryptocurrency rate viewer using Next.js
 ## Challenge Requirements
 
 Build a web application that:
+
 1. Displays a list of cryptocurrency rates
 2. Shows detailed information for individual cryptocurrencies
 3. Handles loading and error states appropriately
@@ -15,6 +16,7 @@ Build a web application that:
 ### Required Features
 
 #### List View (`/rates`)
+
 - Display a grid of cryptocurrencies showing:
   - Rank
   - Name
@@ -23,15 +25,18 @@ Build a web application that:
   - Icon (use something like [cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons))
 - Make each item clickable to navigate to its detail page
 - Bonus: Implement real-time price updates using WebSocket
+
 #### Detail View (`/rates/[id]`)
+
 - Show comprehensive information about the selected cryptocurrency
 - Display a price history chart
-- Bonus: Implement real-time price updates for the selected asset  using WebSocket
+- Bonus: Implement real-time price updates for the selected asset using WebSocket
 
 ## Getting Started
 
 1. Clone this repository
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -39,6 +44,7 @@ yarn install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -50,12 +56,11 @@ yarn dev
 ## API Information
 
 ### REST Endpoints
+
 - Base URL: `https://api.coincap.io/v2`
 - List all assets: `GET /assets`
 - Get single asset: `GET /assets/{id}`
 - Get asset history: `GET /assets/{id}/history`
-
-
 
 ## Project Structure
 
@@ -67,6 +72,7 @@ yarn dev
 ## Evaluation Criteria
 
 Your submission will be evaluated on:
+
 1. **Functionality** - Does it meet all the requirements?
 2. **Code Quality** - Is the code clean, well-organized, and maintainable?
 3. **Error Handling** - How well does it handle edge cases and errors?
@@ -89,17 +95,19 @@ Your submission will be evaluated on:
 - Implement client-side search/filtering
 
 ### WebSocket API
+
 As an optional bonus: Connect to CoinCap's WebSocket for real-time price updates:
 
 ```typescript
 // For all assets
-const ws = new WebSocket('wss://ws.coincap.io/prices?assets=ALL');
+const ws = new WebSocket("wss://ws.coincap.io/prices?assets=ALL");
 
 // For specific assets
-const ws = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum');
+const ws = new WebSocket("wss://ws.coincap.io/prices?assets=bitcoin,ethereum");
 ```
 
 WebSocket data format:
+
 ```typescript
 {
   "bitcoin": "28000.00",
@@ -112,7 +120,7 @@ WebSocket data format:
 
 1. Implement your solution
 2. Add clear documentation on how to run the code
-4. Either share a zip file (with node_modules removed) or the repository link
+3. Either share a zip file (with node_modules removed) or the repository link
 
 ## Development Tips
 
@@ -121,3 +129,5 @@ WebSocket data format:
 - Consider using SWR or React Query for data fetching
 - Use TypeScript strictly to catch potential errors
 - Follow React best practices and hooks guidelines
+
+## Test push to new remote
