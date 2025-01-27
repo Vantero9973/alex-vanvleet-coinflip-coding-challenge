@@ -129,5 +129,3 @@ WebSocket data format:
 - Consider using SWR or React Query for data fetching
 - Use TypeScript strictly to catch potential errors
 - Follow React best practices and hooks guidelines
-
-## Test push to new remote
