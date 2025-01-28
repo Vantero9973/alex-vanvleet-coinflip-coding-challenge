@@ -21,13 +21,13 @@ export const createWebSocket = (
       try {
         const data = JSON.parse(event.data);
         onMessage(data);
-      } catch (error) {
+      } catch {
         onError?.("Failed to parse WebSocket message");
       }
     }
   };
 
-  ws.onerror = (event) => {
+  ws.onerror = () => {
     if (!isClosed) {
       onError?.("WebSocket encountered an error");
       onStatusChange?.("error");
