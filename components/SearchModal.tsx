@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import {
@@ -43,6 +43,12 @@ export default function SearchModal({
       : data?.data.filter((asset: Asset) =>
           asset.name.toLowerCase().includes(query.toLowerCase())
         ) || [];
+
+  useEffect(() => {
+    if (open) {
+      setQuery("");
+    }
+  }, [open]);
 
   return (
     <Dialog
