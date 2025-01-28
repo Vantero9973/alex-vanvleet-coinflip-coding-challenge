@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -29,6 +30,20 @@ interface ChartProps {
 }
 
 export default function Chart({ history }: ChartProps) {
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const isPriceIncreasing =
     history.length > 1 &&
     parseFloat(history[history.length - 1].priceUsd) >
@@ -62,7 +77,6 @@ export default function Chart({ history }: ChartProps) {
         intersect: false,
         callbacks: {
           label: function (tooltipItem: TooltipItem<"line">) {
-            // Correct type
             const value = tooltipItem.raw as number;
             return `$${value.toLocaleString()}`;
           },
@@ -77,9 +91,10 @@ export default function Chart({ history }: ChartProps) {
       x: {
         ticks: {
           maxTicksLimit: 10,
+          display: !isMobile,
         },
         grid: {
-          display: false,
+          display: !isMobile,
         },
       },
       y: {
@@ -90,9 +105,10 @@ export default function Chart({ history }: ChartProps) {
             }
             return value;
           },
+          display: !isMobile,
         },
         grid: {
-          display: true,
+          display: !isMobile,
         },
       },
     },
