@@ -75,6 +75,14 @@ export default function AssetPage({
     <main>
       <div className="flex flex-col gap-y-3">
         <div className="flex items-center gap-x-3">
+          <img
+            alt={asset.name}
+            src={`/icons/${asset.symbol.toLowerCase()}.svg`}
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "/icons/generic.svg";
+            }}
+            className="size-10 p-0.5 flex-none object-cover"
+          />
           <h1 className="text-xl md:text-2xl font-bold">{asset.name}</h1>
           <p className="text-sm text-zinc-600">{asset.symbol}</p>
           <p className="text-sm text-zinc-600 bg-white font-semibold px-3 py-0.5 rounded-full ring-1 ring-inset ring-zinc-300">
