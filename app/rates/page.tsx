@@ -39,7 +39,7 @@ export default function RatesPage() {
 
   return (
     <main>
-      <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3 xl:gap-x-8">
+      <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3">
         {data?.data.map((asset) => {
           const currentPrice = parseFloat(
             prices[asset.id] || asset.priceUsd
