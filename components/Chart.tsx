@@ -9,6 +9,7 @@ import {
   LineElement,
   Tooltip,
   Legend,
+  TooltipItem,
 } from "chart.js";
 
 ChartJS.register(
@@ -60,8 +61,9 @@ export default function Chart({ history }: ChartProps) {
         mode: "index" as const,
         intersect: false,
         callbacks: {
-          label: function (tooltipItem: any) {
-            const value = tooltipItem.raw;
+          label: function (tooltipItem: TooltipItem<"line">) {
+            // Correct type
+            const value = tooltipItem.raw as number;
             return `$${value.toLocaleString()}`;
           },
         },
