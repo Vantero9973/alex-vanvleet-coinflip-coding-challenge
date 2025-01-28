@@ -75,7 +75,7 @@ export default function AssetPage({
     <main>
       <div className="flex flex-col gap-y-3">
         <div className="flex items-center gap-x-3">
-          <h1 className="text-2xl font-bold">{asset.name}</h1>
+          <h1 className="text-xl md:text-2xl font-bold">{asset.name}</h1>
           <p className="text-sm text-zinc-600">{asset.symbol}</p>
           <p className="text-sm text-zinc-600 bg-white font-semibold px-3 py-0.5 rounded-full ring-1 ring-inset ring-zinc-300">
             #{asset.rank}
@@ -83,7 +83,7 @@ export default function AssetPage({
         </div>
         <div className="flex items-center gap-x-3">
           <p
-            className={`text-5xl font-bold ${
+            className={`text-3xl md:text-5xl font-bold ${
               isPositive ? "text-green-600" : "text-red-600"
             }`}
           >
@@ -106,7 +106,7 @@ export default function AssetPage({
             {changePercent.toFixed(2)}% (24h)
           </p>
         </div>
-        <div className="flex max-sm:flex-col sm:flex-wrap gap-3">
+        <div className="flex max-sm:flex-col sm:flex-wrap gap-3 text-sm md:text-base">
           <p>
             <strong>Supply:</strong> {parseFloat(asset.supply).toLocaleString()}
           </p>
